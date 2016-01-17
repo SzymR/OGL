@@ -40,11 +40,14 @@ namespace Repozytorium.Migrations
             //if (System.Diagnostics.Debugger.IsAttached == false)
             //    System.Diagnostics.Debugger.Launch();
 
-            SeeedRoles(context);
-            SeedUsers(context);
-            SeedOgloszenia(context);
-            SeedKategorie(context);
-            SeedOgloszenie_Kategoria(context);
+             SeeedRoles(context);
+             SeedUsers(context);
+             SeedOgloszenia(context);
+           // SeedKategorie(context);
+           // SeedOgloszenie_Kategoria(context);
+           // SeedAtrybut(context);
+           // SeedAtrybutWartosc(context);
+            //SeedKategoriaAtrybut(context);
         }
 
         private void SeedUsers(Models.OglContext context)
@@ -122,8 +125,8 @@ namespace Repozytorium.Migrations
                 var okat = new Ogloszenie_Kategoria()
                 {
                     Id = i,
-                    OgloszenieId = i / 2 + 2,
-                    KategoriaId = i / 2 + 2,
+                    OgloszenieId = i ,
+                    KategoriaId = i 
                 };
                 context.Set<Ogloszenie_Kategoria>().AddOrUpdate(okat);
             }
@@ -148,6 +151,48 @@ namespace Repozytorium.Migrations
                 roleManager.Create(role);
             }
             
+        }
+
+        private void SeedAtrybut(Models.OglContext context)
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                var atr = new Atrybut()
+                {
+                    Nazwa = "A"
+                };
+                context.Set<Atrybut>().AddOrUpdate(atr);
+            }
+            context.SaveChanges();
+        }
+
+        private void SeedKategoriaAtrybut(Models.OglContext context)
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                var kat = new Kategoria_Atrybut()
+                {
+                    IdAtrybut = i,
+                    IdKategoria = i
+
+                };
+                context.Set<Kategoria_Atrybut>().AddOrUpdate(kat);
+            }
+            context.SaveChanges();
+        }
+
+        private void SeedAtrybutWartosc(Models.OglContext context)
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                var kat = new AtrybutWartosc()
+                {
+                    IdAtrybut = i,
+                    Wartosc = "wartosc " + i.ToString()
+                };
+                context.Set<AtrybutWartosc>().AddOrUpdate(kat);
+            }
+            context.SaveChanges();
         }
     }
 }

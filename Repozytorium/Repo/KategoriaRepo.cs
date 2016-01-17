@@ -19,6 +19,7 @@ namespace Repozytorium.Repo
 
         public IQueryable<Kategoria> PobierzKategorie()
         {
+            var s = _db.Atrybut.ToList();
             _db.Database.Log = message => Trace.WriteLine(message);
             var kategorie = _db.Kategorie.AsNoTracking();
             return kategorie;

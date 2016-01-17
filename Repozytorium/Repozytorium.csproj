@@ -121,7 +121,18 @@
       <DependentUpon>201510282031575_1.cs</DependentUpon>
     </Compile>
     <Compile Include="IRepo\Configuration.cs" />
+    <Compile Include="Migrations\201601171831134_atrybut.cs" />
+    <Compile Include="Migrations\201601171831134_atrybut.Designer.cs">
+      <DependentUpon>201601171831134_atrybut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601171840222_insertdate.cs" />
+    <Compile Include="Migrations\201601171840222_insertdate.Designer.cs">
+      <DependentUpon>201601171840222_insertdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Atrybut.cs" />
+    <Compile Include="Models\AtrybutWartosc.cs" />
     <Compile Include="Models\Kategoria.cs" />
+    <Compile Include="Models\Kategoria_Atrybut.cs" />
     <Compile Include="Models\OglContext.cs" />
     <Compile Include="Models\Ogloszenie.cs" />
     <Compile Include="Models\Ogloszenie_Kategoria.cs" />
@@ -138,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510282031575_1.resx">
       <DependentUpon>201510282031575_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601171831134_atrybut.resx">
+      <DependentUpon>201601171831134_atrybut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601171840222_insertdate.resx">
+      <DependentUpon>201601171840222_insertdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -25,7 +25,7 @@ namespace Repozytorium.Repo
         {           
             //_db.Database.Log = message => Trace.WriteLine(message); // sledzenie zapytan wysylanych do bazy
             //var ogloszenia = db.Ogloszenia.Include(o => o.Uzytkownik);
-           
+            var x = _db.AtrybutWartosc.AsNoTracking();
             var ogloszenia = _db.Ogloszenia.AsNoTracking();
             return ogloszenia;
         }

@@ -22,12 +22,15 @@ namespace OGL.Controllers
         // GET: Kategoria
         public ActionResult Index()
         {
+            var s = _repo.PobierzKategorie();
             var kategorie = _repo.PobierzKategorie().AsNoTracking();
             return View(kategorie);
         }
 
         public ActionResult PokazOgloszenia(int id)
         {
+
+            var s = _repo.PobierzKategorie();
             var ogloszenia = _repo.PobierzOgloszeniaZKategorii(id);
             OgloszeniaZKategoriiViewModels model = new OgloszeniaZKategoriiViewModels();
             model.Ogloszenia = ogloszenia.ToList();
