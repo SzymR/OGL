@@ -89,3 +89,5 @@ C:\Users\W\Source\Repos\OGL2\Repozytorium\obj\Debug\Repozytorium.dll
 C:\Users\W\Source\Repos\OGL2\Repozytorium\obj\Debug\Repozytorium.pdb
 C:\Users\W\Source\Repos\OGL2\Repozytorium\obj\Debug\Repozytorium.Migrations.atrybut.resources
 C:\Users\W\Source\Repos\OGL2\Repozytorium\obj\Debug\Repozytorium.Migrations.insertdate.resources
+C:\Users\W\Source\Repos\OGL2\Repozytorium\obj\Debug\Repozytorium.Migrations.dodanieMainParent.resources
+C:\Users\W\Source\Repos\OGL2\Repozytorium\obj\Debug\Repozytorium.Migrations.dodanie.resources

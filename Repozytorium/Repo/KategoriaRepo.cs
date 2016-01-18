@@ -19,7 +19,29 @@ namespace Repozytorium.Repo
 
         public IQueryable<Kategoria> PobierzKategorie()
         {
-            var s = _db.Atrybut.ToList();
+            int k = 0;
+            foreach (var item in _db.Kategorie)
+	        {
+                if (k == 0) { item.ParentId = 0; k++;  continue; }
+                else item.MainParent=1;
+                   if (item.Id < 4)
+                   {
+                       item.ParentId = 1;
+                   }
+                   else
+                       item.ParentId = 2;
+
+
+                   if (k == 3) { item.ParentId = 0; k++; continue; }
+
+                   k++;
+
+                   
+                 
+	        }
+
+            _db.SaveChanges();
+
             _db.Database.Log = message => Trace.WriteLine(message);
             var kategorie = _db.Kategorie.AsNoTracking();
             return kategorie;
@@ -33,6 +55,8 @@ namespace Repozytorium.Repo
                              select o;
             return ogloszenia;
         }
+
+    
         public string NazwaDlaKategorii(int id)
         {
             var nazwa = _db.Kategorie.Find(id).Nazwa;

@@ -25,6 +25,10 @@ namespace Repozytorium.Models
         [Required]
         public int ParentId { get; set; }
 
+        [Display(Name = "Id rodzica:")]
+        [Required]
+        public int MainParent { get; set; }
+
         #region SEO
         [Display(Name = "Tytul w Google:")]
         [MaxLength(72)]

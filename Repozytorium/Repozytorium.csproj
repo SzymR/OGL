@@ -129,6 +129,14 @@
     <Compile Include="Migrations\201601171840222_insertdate.Designer.cs">
       <DependentUpon>201601171840222_insertdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601172053500_dodanieMainParent.cs" />
+    <Compile Include="Migrations\201601172053500_dodanieMainParent.Designer.cs">
+      <DependentUpon>201601172053500_dodanieMainParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601181335476_dodanie.cs" />
+    <Compile Include="Migrations\201601181335476_dodanie.Designer.cs">
+      <DependentUpon>201601181335476_dodanie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Atrybut.cs" />
     <Compile Include="Models\AtrybutWartosc.cs" />
     <Compile Include="Models\Kategoria.cs" />
@@ -138,6 +146,7 @@
     <Compile Include="Models\Ogloszenie_Kategoria.cs" />
     <Compile Include="Models\Uzytkownik.cs" />
     <Compile Include="Models\View\AccountViewModels.cs" />
+    <Compile Include="Models\View\AtrybutZWartosciami.cs" />
     <Compile Include="Models\View\OgloszeniaZKategoriiViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\KategoriaRepo.cs" />
@@ -155,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601171840222_insertdate.resx">
       <DependentUpon>201601171840222_insertdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601172053500_dodanieMainParent.resx">
+      <DependentUpon>201601172053500_dodanieMainParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601181335476_dodanie.resx">
+      <DependentUpon>201601181335476_dodanie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

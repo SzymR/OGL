@@ -40,14 +40,14 @@ namespace Repozytorium.Migrations
             //if (System.Diagnostics.Debugger.IsAttached == false)
             //    System.Diagnostics.Debugger.Launch();
 
-             SeeedRoles(context);
-             SeedUsers(context);
-             SeedOgloszenia(context);
-           // SeedKategorie(context);
-           // SeedOgloszenie_Kategoria(context);
-           // SeedAtrybut(context);
-           // SeedAtrybutWartosc(context);
-            //SeedKategoriaAtrybut(context);
+            //SeeedRoles(context);
+           // SeedUsers(context);
+           // SeedOgloszenia(context);
+            SeedKategorie(context);
+            SeedOgloszenie_Kategoria(context);
+            SeedAtrybut(context);
+            SeedAtrybutWartosc(context);
+            SeedKategoriaAtrybut(context);
         }
 
         private void SeedUsers(Models.OglContext context)
@@ -101,20 +101,112 @@ namespace Repozytorium.Migrations
 
         private void SeedKategorie(Models.OglContext context)
         {
-            for (int i = 1; i < 10; i++)
+            //for (int i = 1; i < 10; i++)
+            //{
+            //    var kat = new Kategoria()
+            //    {
+            //        Id = i,
+            //        Nazwa = "Nazwa kategorii" + i.ToString(),
+            //        Tresc = "Treœæ og³oszenia" + i.ToString(),
+            //        MetaTytul = "Tytu³ kategorii" + i.ToString(),
+            //        MetaOpis = "Opis kategorii" + i.ToString(),
+            //        MetaSlowa = "S³owa kluczowe do kategorii" + i.ToString(),
+            //        ParentId = i,
+            //        MainParent = 1
+            //    };
+            //    context.Set<Kategoria>().AddOrUpdate(kat);
+            //}
+
+
+            var kat = new Kategoria()
             {
-                var kat = new Kategoria()
-                {
-                    Id = i,
-                    Nazwa = "Nazwa kategorii" + i.ToString(),
-                    Tresc = "Treœæ og³oszenia" + i.ToString(),
-                    MetaTytul = "Tytu³ kategorii" + i.ToString(),
-                    MetaOpis = "Opis kategorii" + i.ToString(),
-                    MetaSlowa = "S³owa kluczowe do kategorii" + i.ToString(),
-                    ParentId = i
-                };
-                context.Set<Kategoria>().AddOrUpdate(kat);
-            }
+                Id = 1,
+                Nazwa = "Odziez",
+                Tresc = "Odziez", 
+                MetaTytul = "Odziez",
+                MetaOpis = "Odziez",
+                MetaSlowa = "Odziez",
+                ParentId = 0,
+                MainParent = 1
+            };
+
+            context.Set<Kategoria>().AddOrUpdate(kat);
+
+            var kat2 = new Kategoria()
+            {
+                Id = 2,
+                Nazwa = "Odziez Damska",
+                Tresc = "Odziez Damska",
+                MetaTytul ="Odziez Damska",
+                MetaOpis = "Odziez Damska",
+                MetaSlowa = "Odziez Damska",
+                ParentId = 1,
+                MainParent = 1
+            };
+
+            context.Set<Kategoria>().AddOrUpdate(kat2);
+
+            var kat3 = new Kategoria()
+            {
+                Id = 3,
+                Nazwa = "Skarpety",
+                Tresc = "Skarpety",
+                MetaTytul = "Skarpety",
+                MetaOpis = "Skarpety",
+                MetaSlowa = "Skarpety",
+                ParentId = 2,
+                MainParent = 1
+            };
+
+            context.Set<Kategoria>().AddOrUpdate(kat3);
+
+
+            var kat4 = new Kategoria()
+            {
+                Id = 4,
+                Nazwa = "Odziez Meska",
+                Tresc = "Odziez Meska",
+                MetaTytul = "Odziez Meska",
+                MetaOpis = "Odziez Meska",
+                MetaSlowa = "Odziez Meska",
+                ParentId = 1,
+                MainParent = 1
+            };
+
+            context.Set<Kategoria>().AddOrUpdate(kat4);
+
+
+            var kat5 = new Kategoria()
+            {
+                Id = 5,
+                Nazwa = "RTV",
+                Tresc ="RTV",
+                MetaTytul = "RTV",
+                MetaOpis = "RTV",
+                MetaSlowa = "RTV",
+                ParentId = 0,
+                MainParent = 1
+            };
+
+            context.Set<Kategoria>().AddOrUpdate(kat5);
+
+            var kat6 = new Kategoria()
+            {
+                Id = 6,
+                Nazwa = "Telewizory",
+                Tresc = "Telewizory",
+                MetaTytul = "Telewizory",
+                MetaOpis = "Telewizory",
+                MetaSlowa = "Telewizory",
+                ParentId = 5,
+                MainParent = 5
+            };
+
+            context.Set<Kategoria>().AddOrUpdate(kat6);
+
+
+
+
             context.SaveChanges();
         }
 
@@ -155,43 +247,79 @@ namespace Repozytorium.Migrations
 
         private void SeedAtrybut(Models.OglContext context)
         {
-            for (int i = 1; i < 10; i++)
+            var atr = new Atrybut()
             {
-                var atr = new Atrybut()
-                {
-                    Nazwa = "A"
-                };
-                context.Set<Atrybut>().AddOrUpdate(atr);
-            }
+                Id=1,
+                Nazwa = "Rozmiar"
+            };
+            context.Set<Atrybut>().AddOrUpdate(atr);
+
+            var atr2 = new Atrybut()
+            {
+                Id=2,
+                Nazwa = "Wielkosc"
+            };
+            context.Set<Atrybut>().AddOrUpdate(atr2);
+
+            var atr3 = new Atrybut()
+            {
+                Id=3,
+                Nazwa = "Marka"
+            };
+            context.Set<Atrybut>().AddOrUpdate(atr3);
+
             context.SaveChanges();
         }
 
         private void SeedKategoriaAtrybut(Models.OglContext context)
         {
-            for (int i = 1; i < 10; i++)
+            var kat = new Kategoria_Atrybut()
             {
-                var kat = new Kategoria_Atrybut()
-                {
-                    IdAtrybut = i,
-                    IdKategoria = i
+                IdAtrybut = 1,
+                IdKategoria = 2
 
-                };
-                context.Set<Kategoria_Atrybut>().AddOrUpdate(kat);
-            }
+            };
+            context.Set<Kategoria_Atrybut>().AddOrUpdate(kat);
+
+            var kat2 = new Kategoria_Atrybut()
+            {
+                IdAtrybut = 2,
+                IdKategoria = 6
+
+            };
+            context.Set<Kategoria_Atrybut>().AddOrUpdate(kat2);
+
+            var kat3 = new Kategoria_Atrybut()
+            {
+                IdAtrybut = 2,
+                IdKategoria = 6
+
+            };
+            context.Set<Kategoria_Atrybut>().AddOrUpdate(kat3);
+
             context.SaveChanges();
         }
 
         private void SeedAtrybutWartosc(Models.OglContext context)
         {
-            for (int i = 1; i < 10; i++)
+            var kat = new AtrybutWartosc()
             {
-                var kat = new AtrybutWartosc()
-                {
-                    IdAtrybut = i,
-                    Wartosc = "wartosc " + i.ToString()
-                };
-                context.Set<AtrybutWartosc>().AddOrUpdate(kat);
-            }
+                IdAtrybut = 3,
+                Wartosc = "Samsung"
+            };
+            context.Set<AtrybutWartosc>().AddOrUpdate(kat);
+            var kat2 = new AtrybutWartosc()
+            {
+                IdAtrybut = 3,
+                Wartosc = "LG"
+            };
+            context.Set<AtrybutWartosc>().AddOrUpdate(kat2);
+            var kat3 = new AtrybutWartosc()
+            {
+                IdAtrybut = 3,
+                Wartosc = "Lenovo"
+            };
+            context.Set<AtrybutWartosc>().AddOrUpdate(kat3);
             context.SaveChanges();
         }
     }

@@ -314,3 +314,5 @@ C:\Users\W\Source\Repos\OGL2\OGL\bin\System.Web.Optimization.xml
 C:\Users\W\Source\Repos\OGL2\OGL\obj\Debug\OGL.csprojResolveAssemblyReference.cache
 C:\Users\W\Source\Repos\OGL2\OGL\obj\Debug\OGL.dll
 C:\Users\W\Source\Repos\OGL2\OGL\obj\Debug\OGL.pdb
+C:\Users\W\Source\Repos\OGL2\OGL\bin\SharkDev.MVC.dll
+C:\Users\W\Source\Repos\OGL2\OGL\bin\SharkDev.Web.Controls.dll

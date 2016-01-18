@@ -69,14 +69,55 @@ namespace Repozytorium.Repo
             _db.SaveChanges();
         }
         
-        public void Dodaj(Ogloszenie ogloszenie)
+        public void Dodaj(Ogloszenie ogloszenie,string[] category)
         {
             _db.Ogloszenia.Add(ogloszenie);
+            if (category!=null)
+            {
+            DodajKategorieDoOgloszenia(ogloszenie, category);
+            }
+             
         }
 
         public void Aktualizuj(Ogloszenie ogloszenie)
         {
             _db.Entry(ogloszenie).State = EntityState.Modified;
         }
+
+
+        public void DodajKategorieDoOgloszenia(Ogloszenie ogloszenie, string[] category)
+        {
+            foreach (var item in category)
+            {
+                Ogloszenie_Kategoria temp = new Ogloszenie_Kategoria();
+                temp.KategoriaId= Convert.ToInt16(item);
+                temp.OgloszenieId=ogloszenie.Id;
+                _db.Ogloszenie_Kategoria.Add(temp);
+                
+            }
+            SaveChanges();
+        }
+
+        public IQueryable<Atrybut> PobierzAtrybutyZKategorii(int id)
+        {
+            var atrybut = from o in _db.Kategoria_Atrybut
+                          join k in _db.Atrybut on o.IdAtrybut equals k.Id
+                          where o.IdKategoria == id
+                          select k;
+            return atrybut;
+        }
+
+        public IQueryable<AtrybutWartosc> PobierzWartosciAtrybutowZAtrybutu(int id)
+        {
+
+            var atrW = from o in _db.Atrybut
+                       join k in _db.AtrybutWartosc on o.Id equals k.IdAtrybut
+                       where o.Id == id
+                       select k;
+            return atrW;
+        }
+
+
+
     }
 }

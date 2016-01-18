@@ -47,7 +47,11 @@ namespace Repozytorium.IRepo
         /// Dodanie ogloszenia do bazy danych
         /// </summary>
         /// <param name="ogloszenie"></param>
-        void Dodaj(Ogloszenie ogloszenie);
+        void Dodaj(Ogloszenie ogloszenie,string[] category);
+        void DodajKategorieDoOgloszenia(Ogloszenie ogloszenie, string[] category);
+
+        IQueryable<Atrybut> PobierzAtrybutyZKategorii(int id);
+        IQueryable<AtrybutWartosc> PobierzWartosciAtrybutowZAtrybutu(int id);
 
 
         /// <summary>
