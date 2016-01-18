@@ -125,6 +125,12 @@
     <Reference Include="PagedList.Mvc">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="SharkDev.MVC">
+      <HintPath>..\packages\SharkTree.1.2.1.2\lib\SharkDev.MVC.dll</HintPath>
+    </Reference>
+    <Reference Include="SharkDev.Web.Controls">
+      <HintPath>..\packages\SharkTree.1.2.1.2\lib\SharkDev.Web.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -220,6 +226,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TreeView.cs" />
     <Compile Include="Models\View\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -229,7 +236,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\SharkDev.TreeView.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\SharkDev.TreeView.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -256,6 +265,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SharkDev.treeView.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -297,6 +307,8 @@
     <Content Include="Views\Ogloszenie\MojeOgloszenia.cshtml" />
     <Content Include="Views\Kategoria\Index.cshtml" />
     <Content Include="Views\Kategoria\PokazOgloszenia.cshtml" />
+    <Content Include="Views\Kategoria\PobierzKategoriePrzyDodawaniuOgloszenia.cshtml" />
+    <Content Include="Views\Ogloszenie\WypelnijAtrybuty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

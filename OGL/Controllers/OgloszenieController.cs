@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Repozytorium.IRepo;
 using Microsoft.AspNet.Identity;
 using PagedList;
+using Repozytorium.Models.View;
 
 namespace OGL.Controllers
 {
@@ -93,6 +94,63 @@ namespace OGL.Controllers
         }
 
 
+
+
+
+
+        [HttpPost]
+
+        public ActionResult DodajOgloszenie([Bind(Include = "Tresc,Tytul")] Ogloszenie advert, string[] category)
+        {
+            if (ModelState.IsValid)
+            {
+                // Automatyczne przypisanie Id użytkownika, który dodaje ogłoszenie
+                advert.UzytkownikId = User.Identity.GetUserId();
+                // Automatyczne przypisanie aktualnej daty jako DataDodania
+                advert.DataDodania = DateTime.Now;
+                // W razie wystąpienia błędu powrót do widoku dodawania
+                try
+                {
+                    _repo.Dodaj(advert, category);
+                    
+                    _repo.SaveChanges();
+
+                    
+
+                }
+                catch (Exception)
+                {
+                   return View(advert);
+                }
+
+            }
+           
+           return null;
+        }
+
+        public ActionResult WypelnijAtrybuty(string category, string tytul, string nazwa)
+        {
+            List<AtrybutZWartosciami> model = new List<AtrybutZWartosciami>();
+
+            string[] _category = category.Split(',');
+            foreach (var item2 in _category)
+            {
+                var atrybuty = _repo.PobierzAtrybutyZKategorii(Convert.ToInt16(item2));
+
+
+                foreach (var item in atrybuty)
+                {
+                    AtrybutZWartosciami temp = new AtrybutZWartosciami();
+                    temp.atrybut = item;
+
+                    temp.atrybutWartosc = _repo.PobierzWartosciAtrybutowZAtrybutu(item.Id);
+                    model.Add(temp);
+
+                }
+            }
+
+            return View(model);
+        }
         
         #region MetodyDodawaniaUsuwaniaITP
 
@@ -148,7 +206,7 @@ namespace OGL.Controllers
                 // W razie wystąpienia błędu powrót do widoku dodawania
                 try
                 {
-                    _repo.Dodaj(ogloszenie);
+                    _repo.Dodaj(ogloszenie,null);
                     _repo.SaveChanges();
                     return RedirectToAction("MojeOgloszenia");
                 }

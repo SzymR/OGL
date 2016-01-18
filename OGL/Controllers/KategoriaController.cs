@@ -30,12 +30,19 @@ namespace OGL.Controllers
         public ActionResult PokazOgloszenia(int id)
         {
 
-            var s = _repo.PobierzKategorie();
+            ///var s = _repo.PobierzKategorie();
             var ogloszenia = _repo.PobierzOgloszeniaZKategorii(id);
             OgloszeniaZKategoriiViewModels model = new OgloszeniaZKategoriiViewModels();
             model.Ogloszenia = ogloszenia.ToList();
             model.NazwaKategorii = _repo.NazwaDlaKategorii(id);
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult PobierzKategoriePrzyDodawaniuOgloszenia()
+        {
+            var kateogorie = _repo.PobierzKategorie().ToList();
+            return Json(kateogorie, JsonRequestBehavior.AllowGet);
         }
         
     }
